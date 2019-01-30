@@ -1,1 +1,1 @@
-module gihub.com/maliyan/gom
+module github.com/maliyan/gom
