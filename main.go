@@ -1,9 +1,18 @@
 package main
 
 import (
-	"fmt"
+	"io"
+	"log"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("It's running...")
+	// Hello world, the web server
+
+	helloHandler := func(w http.ResponseWriter, req *http.Request) {
+		io.WriteString(w, "Hello, world!\n")
+	}
+
+	http.HandleFunc("/", helloHandler)
+	log.Fatal(http.ListenAndServe(":8818", nil))
 }
