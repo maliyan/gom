@@ -1,10 +1,7 @@
-FROM golang:1.12.5-stretch
+FROM golang
 
-WORKDIR /go/src/app
+COPY . /go/src/github.com/maliyan/gom/
 
-COPY . .
+RUN go install github.com/maliyan/gom/
 
-RUN go get -d -v ./...
-RUN go install -v ./...
-
-CMD ["app"]
+ENTRYPOINT gom
